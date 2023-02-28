@@ -11,7 +11,7 @@ namespace helloworld
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
-            Console.WriteLine("Press enter to close...");
+            Console.WriteLine("Press any key... to close the console");
             Console.ReadLine();
         }
     }
