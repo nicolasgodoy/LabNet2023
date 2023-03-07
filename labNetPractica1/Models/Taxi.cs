@@ -14,21 +14,21 @@ namespace labNetPractica1.Models
         {
             this.estadoCinturones = estadoCinturones;
         }
-        public override void Avanzar()
+        public override string Avanzar()
         {
             if (estadoCinturones)
             {
-                Console.WriteLine("Puede iniciar su viaje sin problemas, Que tenga buen dia!!");
+                return "Puede iniciar su viaje sin problemas, Que tenga buen dia!!";
             }
             else
             {
-                Console.WriteLine("Por cuestiones de seguridad, pedirlo a su pasajero que se ponga el cinturon");
+                return "Por cuestiones de seguridad, pedirlo a su pasajero que se ponga el cinturon";
             }
         }
 
-        public override void Detenerse()
+        public override string Detenerse()
         {
-            Console.WriteLine("El Taxi se detuvo. Ahora pueden bajar los pasajeros.");
+            return "El Taxi se detuvo. Ahora pueden bajar los pasajeros.";
         }
 
         public override string DescripcionTipo()

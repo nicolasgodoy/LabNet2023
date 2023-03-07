@@ -18,17 +18,18 @@ namespace labNetPractica1.Models
             this.pasajeros = pasajeros;
         }
 
-        public abstract void Avanzar();
+        public abstract string Avanzar();
 
 
-        public abstract void Detenerse();
+        public abstract string Detenerse();
 
         public abstract string DescripcionTipo();
 
-        public void Descripcion()
+        public string Descripcion()
         {
-            Console.WriteLine(DescripcionTipo() + " " + this.id + ": " + this.pasajeros + " pasajeros");
             
+            return DescripcionTipo() + " " + this.id + ": " + this.pasajeros + " pasajeros";
+
         }
 
     }

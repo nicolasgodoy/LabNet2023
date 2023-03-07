@@ -79,9 +79,9 @@ namespace labNetPractica1
 
             foreach (TransportePublico item in transportePublicos)
             {
-                item.Descripcion();
-                item.Avanzar();
-                item.Detenerse();
+                Console.WriteLine(item.Descripcion());
+                Console.WriteLine(item.Avanzar());
+                Console.WriteLine(item.Detenerse());
                 Console.WriteLine("\n");
             }
 

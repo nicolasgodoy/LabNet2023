@@ -15,21 +15,21 @@ namespace labNetPractica1.Models
         {
             this.estadoAsientos = estadoAsientos;
         }
-        public override void Avanzar()
+        public override string Avanzar()
         {
             if (this.estadoAsientos)
             {
-                Console.WriteLine("Entonces puede avanzar sin problemas, Buen Viaje!!");
+                return "Entonces puede avanzar sin problemas, Buen Viaje!!";
             }
             else
             {
-                Console.WriteLine("Por favor controle y verifique que todos sus pasajeros esten en sus asientos!!");
+                return "Por favor controle y verifique que todos sus pasajeros esten en sus asientos!!";
             }
         }
 
-        public override void Detenerse()
+        public override string Detenerse()
         {
-            Console.WriteLine("El Omnibus se detuvo. Ahora pueden bajar los pasajeros.");
+            return "El Omnibus se detuvo. Ahora pueden bajar los pasajeros.";
         }
 
         public override string DescripcionTipo()
