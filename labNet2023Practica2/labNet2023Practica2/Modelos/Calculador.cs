@@ -43,21 +43,8 @@ namespace labNet2023Practica2.Modelos
                 resultado = new ResultadoCalculo(Mensajes.ChukNorris + "\n" + ex.Message, false);
                 return resultado;
             }
-            catch(Exception ex)
-            {
-                resultado = new ResultadoCalculo(Mensajes.ErrorInesperado + " " + ex.Message, false);
-                return resultado;
-            }
             
         }
         
-
-
-
-
-
-
-
-
     }
 }

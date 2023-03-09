@@ -12,20 +12,16 @@ namespace labNet2023Practica2.Modelos
         public bool Exitoso { get; }
         public int Valor { get; }
        
-
         public ResultadoCalculo(string mensaje, bool exitoso)
         {
             this.Mensaje = mensaje;
             this.Exitoso = exitoso;
-           
         }
-
         public ResultadoCalculo(string mensaje, bool exitoso, int valor)
         {
             this.Mensaje = mensaje;
             this.Exitoso = exitoso;
             this.Valor = valor;
-
         }
 
     }

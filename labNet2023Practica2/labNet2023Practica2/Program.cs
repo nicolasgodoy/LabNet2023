@@ -102,8 +102,6 @@ namespace labNet2023Practica2
                 Console.WriteLine(resultadoDividendoDivisor.Mensaje);
             }
 
-
-
         }
 
         private static void Ejercicio3()
@@ -125,11 +123,9 @@ namespace labNet2023Practica2
 
             }
         }
-
         private static void Ejercicio4()
         {
 
-            
             try
             {
                 Console.WriteLine("\n");
@@ -144,6 +140,5 @@ namespace labNet2023Practica2
 
             }
         }
-
     }
 }

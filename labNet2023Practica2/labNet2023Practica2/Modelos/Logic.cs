@@ -8,7 +8,6 @@ namespace labNet2023Practica2.Modelos
 {
     public class Logic
     {
-
         public void MetodoLogic()
         {
             throw new FormatException();
