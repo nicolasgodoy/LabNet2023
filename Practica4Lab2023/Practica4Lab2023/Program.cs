@@ -20,16 +20,12 @@ namespace Practica4Lab2023
             DeleteCustomer();
 
 
-            
-            
-            Console.ReadLine();
-            
-        
-            
-            
+            Console.Write("\nPress 'Enter' to exit the process...");
+            while (Console.ReadKey().Key != ConsoleKey.Enter)
+            {
+            }
+
         }
-
-
         private static void MostrandoDatosEntidades()
         {
             CustomerLogic customerLogic = new CustomerLogic();
@@ -113,10 +109,6 @@ namespace Practica4Lab2023
                 }
             }
 
-
-
-
-
         }
 
         private static string IngresoCustomerID()
@@ -186,7 +178,6 @@ namespace Practica4Lab2023
 
             }
             return CompanyNameCustomers;
-
         }
 
 
@@ -200,7 +191,6 @@ namespace Practica4Lab2023
 
             while (ingresoInvalido)
             {
-
 
                 try
                 {
@@ -243,7 +233,7 @@ namespace Practica4Lab2023
                     ingresoInvalido = true;
                     Console.WriteLine("Ocurrio un error Inesperado");
                 }
-                
+
 
             }
         }
@@ -257,7 +247,6 @@ namespace Practica4Lab2023
 
             while (ingresoInvalido)
             {
-
 
                 try
                 {
