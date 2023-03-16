@@ -11,7 +11,7 @@ namespace Lab.Logic.Interfaces
     {
 
         List<T> GetAll();
-        void Add(T entity);
+        void Add(T entity); 
         void Update(T entity);
         void Delete(string id);
     }
