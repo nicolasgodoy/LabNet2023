@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32901.82
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica4Lab2023", "Practica4Lab2023\Practica4Lab2023.csproj", "{0487959C-A555-41EE-AA34-6A4A7987B73D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practica5Lab2023", "Practica5Lab2023\Practica5Lab2023.csproj", "{0487959C-A555-41EE-AA34-6A4A7987B73D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.Logic", "Lab.Logic\Lab.Logic.csproj", "{9EA2E525-8674-44B9-B38C-A1DA1636ED89}"
 EndProject
