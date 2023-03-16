@@ -14,6 +14,7 @@ namespace Practica4Lab2023
     {
         static void Main(string[] args)
         {
+            
             MostrandoDatosEntidades();
             AddCustomer();
             UpdateCustomer();
@@ -180,7 +181,8 @@ namespace Practica4Lab2023
             return CompanyNameCustomers;
         }
 
-
+        
+        
         private static void UpdateCustomer()
         {
             CustomerLogic customerLogic = new CustomerLogic();
