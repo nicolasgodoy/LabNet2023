@@ -26,6 +26,9 @@ namespace Practica4Lab2023
             MetodoQuery9();
             MetodoQuery10();
 
+            // // No pude hacerlo andar por error de tipo de dato con el DISTINCT
+            // MetodoQuery11();
+
             Console.Write("\nPress 'Enter' to exit the process...");
             while (Console.ReadKey().Key != ConsoleKey.Enter)
             {
@@ -188,6 +191,20 @@ namespace Practica4Lab2023
             {
                 Console.WriteLine($" {productStock.ProductID} - {productStock.ProductName} - {productStock.SupplierID} - {productStock.Suppliers} - {productStock.CategoryID} " +
                 $"- {productStock.Categories} - {productStock.QuantityPerUnit} - {productStock.UnitPrice} - {productStock.UnitsInStock} - {productStock.UnitsOnOrder} - {productStock.ReorderLevel} ");
+            }
+        }
+
+        private static void MetodoQuery11()
+        {
+            CategoriesLogic categoriesLogic = new CategoriesLogic();
+            List<Categories> listCategories = categoriesLogic.GetCategoriesWidthProducts();
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 11 ================");
+
+
+            foreach (Categories categories in listCategories)
+            {
+                Console.WriteLine($" {categories.CategoryID} - {categories.CategoryName} - ");
             }
         }
 

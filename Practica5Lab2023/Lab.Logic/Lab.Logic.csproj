@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseLogic.cs" />
+    <Compile Include="CategoriesLogic.cs" />
     <Compile Include="ProductsLogic.cs" />
     <Compile Include="CustomerLogic.cs" />
     <Compile Include="Dto\CustomersOrdersDto.cs" />
