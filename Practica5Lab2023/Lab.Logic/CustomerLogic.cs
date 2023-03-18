@@ -90,5 +90,18 @@ namespace Lab.Logic
 
         }
 
+        
+
+        public List<Customers> GetCustomerPrimerosTres()
+        {
+            var result = from u in context.Customers
+                         where u.Region == "WA"
+                         orderby u.CustomerID
+                         select u;
+
+            return result.Take(3).ToList();
+
+        }
+
     }
 }

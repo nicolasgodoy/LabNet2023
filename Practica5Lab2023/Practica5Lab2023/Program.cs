@@ -22,6 +22,8 @@ namespace Practica4Lab2023
             MetodoQuery5();
             MetodoQuery6();
             MetodoQuery7();
+            MetodoQuery8();
+
 
             Console.Write("\nPress 'Enter' to exit the process...");
             while (Console.ReadKey().Key != ConsoleKey.Enter)
@@ -141,6 +143,20 @@ namespace Practica4Lab2023
             {
                 Console.WriteLine($" {customerOrdersDto.CustomerID} - {customerOrdersDto.Region} - {customerOrdersDto.OrderDate} ");
 
+            }
+        }
+
+        private static void MetodoQuery8()
+        {
+            CustomerLogic customerLogic = new CustomerLogic();
+            List<Customers> listCustomer = customerLogic.GetCustomerPrimerosTres();
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 8 ================");
+
+            foreach (Customers customer in listCustomer)
+            {
+                Console.WriteLine($" {customer.CustomerID} - {customer.CompanyName} - {customer.ContactName} - {customer.ContactTitle} - {customer.Address} " +
+                $"- {customer.City} - {customer.Region} - {customer.PostalCode} - {customer.Country} - {customer.Phone} - {customer.Fax} ");
             }
         }
 
