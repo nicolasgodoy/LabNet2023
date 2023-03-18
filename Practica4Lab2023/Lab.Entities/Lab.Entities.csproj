@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Region.cs" />
+    <Compile Include="Products.cs" />
     <Compile Include="Categories.cs" />
     <Compile Include="CustomerDemographics.cs" />
     <Compile Include="Customers.cs" />

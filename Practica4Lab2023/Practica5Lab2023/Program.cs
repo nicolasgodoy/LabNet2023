@@ -1,6 +1,6 @@
 ﻿using Lab.Entities;
 using Lab.Logic;
-using Lab.Logic.Excepciones;
+using Lab.Logic.Dto;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -14,12 +14,14 @@ namespace Practica4Lab2023
     {
         static void Main(string[] args)
         {
-            
-            MostrandoDatosEntidades();
-            AddCustomer();
-            UpdateCustomer();
-            DeleteCustomer();
 
+            MetodoQuery1();
+            MetodoQuery2();
+            MetodoQuery3();
+            MetodoQuery4();
+            MetodoQuery5();
+            MetodoQuery6();
+            MetodoQuery7();
 
             Console.Write("\nPress 'Enter' to exit the process...");
             while (Console.ReadKey().Key != ConsoleKey.Enter)
@@ -27,261 +29,121 @@ namespace Practica4Lab2023
             }
 
         }
-        private static void MostrandoDatosEntidades()
+
+        private static void MetodoQuery1()
         {
             CustomerLogic customerLogic = new CustomerLogic();
-            CategoryLogic categoryLogic = new CategoryLogic();
+            Customers customerObject = customerLogic.GetCustomerObject();
+            Console.WriteLine("================ QUERY 1 ================");
 
+            Console.WriteLine($" {customerObject.CustomerID} - {customerObject.CompanyName} - {customerObject.ContactName} - {customerObject.ContactTitle} - {customerObject.Address} " +
+            $"- {customerObject.City} - {customerObject.Region} - {customerObject.PostalCode} - {customerObject.Country} - {customerObject.Phone} - {customerObject.Fax} ");
+        }
 
-            Console.WriteLine("| CustomerID |" + "| ContactName |" + " - " + "| CompanyName |");
-            Console.WriteLine("");
-            foreach (Customers customer in customerLogic.GetAll())
+        private static void MetodoQuery2()
+        {
+            ProductsLogic productsLogic = new ProductsLogic();
+            List<Products> listProductSinStock = productsLogic.GetProductSinStock();
+
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 2 ================");
+
+            foreach (Products productSinStock in listProductSinStock)
             {
-                Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} - {customer.CompanyName}");
-            }
-
-
-
-            Console.WriteLine("");
-            Console.WriteLine("| CategorietName |" + " - " + "| CategorieDescription |");
-            Console.WriteLine("");
-            foreach (Categories categorie in categoryLogic.GetAll())
-            {
-                Console.WriteLine($"{categorie.CategoryName} - {categorie.Description}");
+                Console.WriteLine($" {productSinStock.ProductID} - {productSinStock.ProductName} - {productSinStock.SupplierID} - {productSinStock.Suppliers} - {productSinStock.CategoryID} " +
+                $"- {productSinStock.Categories} - {productSinStock.QuantityPerUnit} - {productSinStock.UnitPrice} - {productSinStock.UnitsInStock} - {productSinStock.UnitsOnOrder} - {productSinStock.ReorderLevel} ");
             }
         }
 
+        private static void MetodoQuery3()
+        {
+            ProductsLogic productsLogic = new ProductsLogic();
+            List<Products> listProductStock = productsLogic.GetProductStock();
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 3 ================");
 
-        private static void AddCustomer()
+
+            foreach (Products productStock in listProductStock)
+            {
+                Console.WriteLine($" {productStock.ProductID} - {productStock.ProductName} - {productStock.SupplierID} - {productStock.Suppliers} - {productStock.CategoryID} " +
+                $"- {productStock.Categories} - {productStock.QuantityPerUnit} - {productStock.UnitPrice} - {productStock.UnitsInStock} - {productStock.UnitsOnOrder} - {productStock.ReorderLevel} ");
+            }
+        }
+
+        private static void MetodoQuery4()
         {
             CustomerLogic customerLogic = new CustomerLogic();
-            bool ingresoInvalido = true;
-            string CustomerID;
-            string ContactNameCustomers;
-            string CompanyNameCustomers;
+            List<Customers> listCustomer = customerLogic.GetCustomerRegionWA();
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 4 ================");
 
-            while (ingresoInvalido)
+            foreach (Customers customer in listCustomer)
             {
-                try
-                {
-
-                    Console.WriteLine("");
-                    Console.WriteLine(" =====Ingresando Datos===== ");
-
-
-                    CustomerID = IngresoCustomerID();
-                    ContactNameCustomers = IngresoContactName();
-                    CompanyNameCustomers = IngresoCompanyName();
-
-                    Customers newCustomer = new Customers(CustomerID, ContactNameCustomers, CompanyNameCustomers);
-
-                    customerLogic.Add(newCustomer);
-
-
-                    Console.WriteLine("| ContactName |" + " - " + "| CompanyName |");
-                    Console.WriteLine("");
-                    foreach (Customers customer in customerLogic.GetAll())
-                    {
-                        Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} - {customer.CompanyName}");
-                    }
-
-                    ingresoInvalido = false;
-                }
-                catch (EntityFoundException ex)
-                {
-                    ingresoInvalido = true;
-                    Console.WriteLine(ex.Message);
-                }
-                catch (FieldNullException ex)
-                {
-                    ingresoInvalido = true;
-                    Console.WriteLine(ex.Message);
-                }
-                catch (FieldLenghtInvalidException ex)
-                {
-                    ingresoInvalido = true;
-                    Console.WriteLine(ex.Message);
-                }
-                catch (Exception)
-                {
-
-                    ingresoInvalido = true;
-                    Console.WriteLine("Ocurrio un error Inesperado");
-                }
+                Console.WriteLine($" {customer.CustomerID} - {customer.CompanyName} - {customer.ContactName} - {customer.ContactTitle} - {customer.Address} " +
+                $"- {customer.City} - {customer.Region} - {customer.PostalCode} - {customer.Country} - {customer.Phone} - {customer.Fax} ");
             }
-
         }
 
-        private static string IngresoCustomerID()
+        private static void MetodoQuery5()
         {
-            bool ingresoInvalido = true;
-            string customerID = string.Empty;
 
-            while (ingresoInvalido)
+            ProductsLogic productsLogic = new ProductsLogic();
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 5 ================");
+            Products product = productsLogic.GetProductsOrNull();
+
+            if (product == null)
             {
-                Console.WriteLine(" Ingrese el CustomerID: ");
-                customerID = Console.ReadLine();
-
-                if (customerID == null || customerID.Length != 5)
-                {
-                    Console.WriteLine("Fallo, Debe ingresar Nuevamente la informacion");
-                }
-                else
-                {
-                    ingresoInvalido = false;
-                }
-
+                Console.WriteLine("El Producto no Existe o es null");
             }
-            return customerID;
-
-        }
-        private static string IngresoContactName()
-        {
-            bool ingresoInvalido = true;
-            string ContactNameCustomers = string.Empty;
-
-            while (ingresoInvalido)
+            else
             {
-                Console.WriteLine(" Ingrese el ContactName de Customers: ");
-                ContactNameCustomers = Console.ReadLine();
-
-                if (ContactNameCustomers == null || ContactNameCustomers.Length < 30 && ContactNameCustomers.Length == 30)
-                {
-                    Console.WriteLine("Fallo, Debe ingresar Nuevamente la informacion");
-                }
-                else
-                {
-                    ingresoInvalido = false;
-                }
-
-            }
-            return ContactNameCustomers;
-
-        }
-        private static string IngresoCompanyName()
-        {
-            bool ingresoInvalido = true;
-            string CompanyNameCustomers = string.Empty;
-
-            while (ingresoInvalido)
-            {
-                Console.WriteLine("Ingrese el CompanyName de Customers: ");
-                CompanyNameCustomers = Console.ReadLine();
-
-                if (CompanyNameCustomers == null || CompanyNameCustomers.Length < 40 && CompanyNameCustomers.Length == 40)
-                {
-                    Console.WriteLine("Fallo, Debe ingresar Nuevamente la informacion");
-                }
-                else
-                {
-                    ingresoInvalido = false;
-                }
-
-            }
-            return CompanyNameCustomers;
-        }
-
-        
-        
-        private static void UpdateCustomer()
-        {
-            CustomerLogic customerLogic = new CustomerLogic();
-            string CustomerID;
-            string ContactNameCustomers;
-            string CompanyNameCustomers;
-            bool ingresoInvalido = true;
-
-            while (ingresoInvalido)
-            {
-
-                try
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine(" =====Editar de Datos===== ");
-
-                    CustomerID = IngresoCustomerID();
-                    ContactNameCustomers = IngresoContactName();
-                    CompanyNameCustomers = IngresoCompanyName();
-
-                    Customers newCustomer = new Customers(CustomerID, ContactNameCustomers, CompanyNameCustomers);
-                    customerLogic.Update(newCustomer);
-
-                    Console.WriteLine("| ContactName |" + " - " + "| CompanyName |");
-                    Console.WriteLine("");
-                    foreach (Customers customer in customerLogic.GetAll())
-                    {
-                        Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} - {customer.CompanyName}");
-                    }
-                    ingresoInvalido = false;
-                }
-                catch (EntityNotFoundException ex)
-                {
-                    ingresoInvalido = true;
-                    Console.WriteLine(ex.Message);
-                }
-                catch (FieldNullException ex)
-                {
-                    ingresoInvalido = true;
-                    Console.WriteLine(ex.Message);
-                }
-                catch (FieldLenghtInvalidException ex)
-                {
-                    ingresoInvalido = true;
-                    Console.WriteLine(ex.Message);
-                }
-                catch (Exception)
-                {
-
-                    ingresoInvalido = true;
-                    Console.WriteLine("Ocurrio un error Inesperado");
-                }
-
-
+                Console.WriteLine("El Producto Existe");
             }
         }
 
-        private static void DeleteCustomer()
+        private static void MetodoQuery6()
         {
 
             CustomerLogic customerLogic = new CustomerLogic();
-            string CustomerID;
-            bool ingresoInvalido = true;
+            List<string> listNameCustomerUpper = customerLogic.GetNameCustomerUpper();
 
-            while (ingresoInvalido)
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 6 Mayusculas ================");
+
+
+            foreach (string item in listNameCustomerUpper)
             {
+                Console.WriteLine($"{item}");
 
-                try
-                {
+            }
 
-                    Console.WriteLine("");
-                    Console.WriteLine(" =====Eliminacion de Datos===== ");
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 6 Minusculas ================");
 
-                    Console.WriteLine(" Ingrese el CustomerID que desea Eliminar: ");
-                    CustomerID = Console.ReadLine();
-                    customerLogic.Delete(CustomerID);
+            List<string> listNameCustomerLower = customerLogic.GetNameCustomerLower();
 
-                    Console.WriteLine("| ContactName |" + " - " + "| CompanyName |");
-                    Console.WriteLine("");
-                    foreach (Customers customer in customerLogic.GetAll())
-                    {
-                        Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} - {customer.CompanyName}");
-                    }
-                    ingresoInvalido = false;
-                }
-                catch (EntityNotFoundException ex)
-                {
-                    ingresoInvalido = true;
-                    Console.WriteLine(ex.Message);
-                }
-
-                catch (Exception)
-                {
-                    ingresoInvalido = true;
-                    Console.WriteLine("Se debe ingresar nuevamente la informacion");
-                }
+            foreach (string item in listNameCustomerLower)
+            {
+                Console.WriteLine($"{item}");
 
             }
         }
+        private static void MetodoQuery7()
+        {
+
+            CustomerLogic customerLogic = new CustomerLogic();
+            List<CustomersOrdersDto> listCustomersOrdersDto = customerLogic.GetCustomerJoinOrders();
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 7 ================");
+
+            foreach (CustomersOrdersDto customerOrdersDto in listCustomersOrdersDto)
+            {
+                Console.WriteLine($" {customerOrdersDto.CustomerID} - {customerOrdersDto.Region} - {customerOrdersDto.OrderDate} ");
+
+            }
+        }
+
 
 
     }

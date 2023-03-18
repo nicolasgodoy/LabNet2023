@@ -13,6 +13,10 @@ namespace Lab.Data
         }
 
         public virtual DbSet<Categories> Categories { get; set; }
+
+        public virtual DbSet<Region> Region { get; set; }
+
+        public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
@@ -24,6 +28,10 @@ namespace Lab.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Products>()
+                .Property(e => e.UnitPrice)
+                .HasPrecision(19, 4);
+
             modelBuilder.Entity<CustomerDemographics>()
                 .Property(e => e.CustomerTypeID)
                 .IsFixedLength();

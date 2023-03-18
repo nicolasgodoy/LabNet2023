@@ -49,13 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseLogic.cs" />
-    <Compile Include="CategoryLogic.cs" />
+    <Compile Include="ProductsLogic.cs" />
     <Compile Include="CustomerLogic.cs" />
-    <Compile Include="Excepciones\EntityFoundException.cs" />
-    <Compile Include="Excepciones\EntityNotFoundException.cs" />
-    <Compile Include="Excepciones\FieldNullException.cs" />
-    <Compile Include="Excepciones\FieldLenghtInvalidException.cs" />
-    <Compile Include="Interfaces\IABMLogic.cs" />
+    <Compile Include="Dto\CustomersOrdersDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

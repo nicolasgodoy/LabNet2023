@@ -1,7 +1,7 @@
 ﻿using Lab.Data;
 using Lab.Entities;
-using Lab.Logic.Excepciones;
-using Lab.Logic.Interfaces;
+using Lab.Logic.Dto;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,69 +10,85 @@ using System.Threading.Tasks;
 
 namespace Lab.Logic
 {
-    public class CustomerLogic : BaseLogic, IABMLogic<Customers>
+    public class CustomerLogic : BaseLogic
     {
-        public List<Customers> GetAll()
+
+        // 1. METHOD SINTAX
+        public Customers GetCustomerObject()
         {
-            return context.Customers.ToList();
+            return context.Customers.FirstOrDefault();
+
         }
 
-        public void Add(Customers newCustomer)
+
+        // 4. QUERY SINTAX
+        public List<Customers> GetCustomerRegionWA()
         {
-            ValidField(newCustomer);
-            var customerExist = context.Customers.Find(newCustomer.CustomerID);
+            var result = from r in context.Customers
+                         where r.Region == "WA"
+                         select r;
+            return result.ToList();
 
-            if (customerExist != null)
-            {
-                throw new EntityFoundException("Customer Repetido, Vuelve a ingresar los datos");
-            }
-
-            context.Customers.Add(newCustomer);
-            context.SaveChanges();
         }
 
-        public void ValidField(Customers customer)
-        {
-            if (customer.CustomerID == null || customer.CompanyName == null)
-            {
-                throw new FieldNullException("los campos CustomerID y CompanyName son obligatorios");
-            }
+        
 
-            if (customer.CustomerID.Length != 5)
-            {
-                throw new FieldLenghtInvalidException("La longitud de CustomerID es invalida");
-            }
+        // 6. QUERY SINTAX
+        public List<string> GetNameCustomerUpper()
+        {
+            var result = from u in context.Customers
+                        select u.ContactName.ToUpper();
+            return result.ToList(); ;
+
         }
 
-        public void ValidEntityNotFound(Customers customer)
+        // 6. QUERY SINTAX
+        public List<string> GetNameCustomerLower()
         {
+            var result = from u in context.Customers
+                         select u.ContactName.ToLower();
+            return result.ToList();
 
-            if (customer == null)
-            {
-                throw new EntityNotFoundException("Customer no fue encontrado");
-            }
         }
 
-        public void Update(Customers customer)
+        // 7. QUERY SINTAX
+        public List<CustomersOrdersDto> GetCustomerJoinOrders()
         {
-            ValidField(customer);
-            var customerUpdate = context.Customers.Find(customer.CustomerID);
-            ValidEntityNotFound(customerUpdate);
+            DateTime orderDate = new DateTime(1997,1,1);
+            var result = from c in context.Customers
+                         join o in context.Orders on c.CustomerID equals o.CustomerID
+                         where o.OrderDate > orderDate && c.Region == "WA"
+                         select new CustomersOrdersDto
+                         {
+                             CustomerID = c.CustomerID,
+                             CompanyName = c.CompanyName,
+                             ContactName = c.ContactName,
+                             ContactTitle = c.ContactTitle,
+                             Address = c.Address,
+                             City = c.City,
+                             Region = c.Region,
+                             PostalCode = c.PostalCode,
+                             Country = c.Country,
+                             Phone = c.Phone,
+                             Fax = c.Fax,
 
-            customerUpdate.CustomerID = customer.CustomerID;
-            customerUpdate.ContactName = customer.ContactName;
-            customerUpdate.CompanyName = customer.CompanyName;
-            context.SaveChanges();
+                             OrderID = o.OrderID,
+                             EmployeeID = o.EmployeeID,
+                             OrderDate = o.OrderDate,
+                             RequiredDate = o.RequiredDate,
+                             ShippedDate = o.ShippedDate,
+                             ShipVia = o.ShipVia,
+                             Freight = o.Freight,
+                             ShipName = o.ShipName,
+                             ShipAddress = o.ShipAddress,
+                             ShipCity = o.ShipCity,
+                             ShipRegion = o.ShipRegion,
+                             ShipPostalCode = o.ShipPostalCode,
+                             ShipCountry = o.ShipCountry
+                         };
+            return result.ToList();
+
         }
-
-        public void Delete(string id)
-        {
-            var customerDelete = context.Customers.First(n => n.CustomerID == id);
-            ValidEntityNotFound(customerDelete);
-            context.Customers.Remove(customerDelete);
-            context.SaveChanges();
-        }
-
 
     }
 }
