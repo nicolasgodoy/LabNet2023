@@ -10,7 +10,7 @@ namespace Lab.Logic
 {
     public class CategoriesLogic : BaseLogic
     {
-        // No pude hacerlo andar por error de tipo de dato con el DISTINCT
+        // Averigue que necesitaba una subconsulta pero no pude hacerlo andar
         public List<Categories> GetCategoriesWidthProducts()
         {
             var result = from c in context.Categories

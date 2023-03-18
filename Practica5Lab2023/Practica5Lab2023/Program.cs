@@ -26,7 +26,7 @@ namespace Practica4Lab2023
             MetodoQuery9();
             MetodoQuery10();
 
-            // // No pude hacerlo andar por error de tipo de dato con el DISTINCT
+            // Averigue que necesitaba una subconsulta pero no pude hacerlo andar
             // MetodoQuery11();
 
             Console.Write("\nPress 'Enter' to exit the process...");
