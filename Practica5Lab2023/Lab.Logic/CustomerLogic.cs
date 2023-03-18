@@ -90,8 +90,8 @@ namespace Lab.Logic
 
         }
 
-        
 
+        // 8. QUERY SINTAX
         public List<Customers> GetCustomerPrimerosTres()
         {
             var result = from u in context.Customers

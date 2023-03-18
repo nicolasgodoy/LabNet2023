@@ -33,5 +33,13 @@ namespace Lab.Logic
             return result.FirstOrDefault();
 
         }
+
+        // 9. METHOD SINTAX
+        public List<Products> GetProductsOrderByName()
+        {
+           
+           return context.Products.OrderBy(p=>p.ProductName).ToList();
+
+        }
     }
 }

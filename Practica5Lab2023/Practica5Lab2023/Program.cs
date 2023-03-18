@@ -23,6 +23,7 @@ namespace Practica4Lab2023
             MetodoQuery6();
             MetodoQuery7();
             MetodoQuery8();
+            MetodoQuery9();
 
 
             Console.Write("\nPress 'Enter' to exit the process...");
@@ -157,6 +158,21 @@ namespace Practica4Lab2023
             {
                 Console.WriteLine($" {customer.CustomerID} - {customer.CompanyName} - {customer.ContactName} - {customer.ContactTitle} - {customer.Address} " +
                 $"- {customer.City} - {customer.Region} - {customer.PostalCode} - {customer.Country} - {customer.Phone} - {customer.Fax} ");
+            }
+        }
+
+        private static void MetodoQuery9()
+        {
+            ProductsLogic productsLogic = new ProductsLogic();
+            List<Products> listProductStock = productsLogic.GetProductsOrderByName();
+            Console.WriteLine("\n");
+            Console.WriteLine("================ QUERY 9 ================");
+
+
+            foreach (Products productStock in listProductStock)
+            {
+                Console.WriteLine($" {productStock.ProductID} - {productStock.ProductName} - {productStock.SupplierID} - {productStock.Suppliers} - {productStock.CategoryID} " +
+                $"- {productStock.Categories} - {productStock.QuantityPerUnit} - {productStock.UnitPrice} - {productStock.UnitsInStock} - {productStock.UnitsOnOrder} - {productStock.ReorderLevel} ");
             }
         }
 
