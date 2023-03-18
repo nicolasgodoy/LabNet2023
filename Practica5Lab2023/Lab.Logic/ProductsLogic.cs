@@ -41,5 +41,13 @@ namespace Lab.Logic
            return context.Products.OrderBy(p=>p.ProductName).ToList();
 
         }
+
+        // 10. METHOD SINTAX
+        public List<Products> GetProductsOrderByStockDesc()
+        {
+
+            return context.Products.OrderByDescending(p => p.UnitsInStock).ToList();
+
+        }
     }
 }
