@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    display:flex;
+    justify-content: center;
+    height: auto;
+    background-color: rgb(207, 203, 203);
+    
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.titulo_principal{
+    color:rgb(255, 255, 255);
+    border-radius:5px;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    border-bottom: 3px solid rgb(70, 120, 221);
+}
+
+.ContenenedorTituloyImagen{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    column-gap: 50px;
+}
+
+
+h3{
+    color: white;
+    background-color: rgb(233, 91, 91);
+    border-radius: 10px;
+    text-align: center;
+}
+
+p{
+    padding:5px;
+    text-align: center;
+    background-color: rgb(51, 102, 173);
+    color:white;
+    border-radius: 10px;
+}
+
+.imagenNumeros{
+    width: 150px;
+    height: 150px;
+}
+
+input{
+    font-size: 1.5rem;
+    border:2px solid;
+    border-radius:10px;
+    
+}
+
+.inputNumero{
+    font-size: 1.2rem;
+    border:2px solid;
+    border-radius:10px;
+    
+}
+
+.Contenedor_1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    row-gap: 10px;
+}
+
+label{
+    font-size: 1rem;
+    
+}
+
+.Contenedor_2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    row-gap: 15px;
+}
+
+
+
+.TextOportunidades{
+    
+    color:rgb(0, 0, 0);
+    font-size: 1.5rem;
+}
+
+.TextoAtaques {
+    width: 200px;
+}
+
+
+span{
+   color:rgb(9, 9, 9);
+   text-align: center;
+   border-radius: 10px;
+}
+
+
+#Mensajes{
+    
+    width: 300px;
+    height: 30px;
+}
+

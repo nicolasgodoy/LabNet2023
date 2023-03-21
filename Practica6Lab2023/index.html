@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+    <!-- minify -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <!-- latest -->
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <!-- core style only -->
+    <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <title> ADIVINA EL NUMERO!! </title>
+</head>
+
+<body id="canvas">
+
+    <section id="OcultarContenedor" class="Contenedor_1">
+
+
+        <div class="ContenenedorTituloyImagen">
+            <h1 class="titulo_principal">Ingrese su nombre</h1>
+            <img class=" animate__animated animate__bounce animate__slow 2s animate__repeat-3 imagenNumeros"
+                src="/imagenes/adivinarNumero.png">
+        </div>
+
+        <input type="text" id="nombre" placeholder="ingrese su nombre.." />
+
+        <button type="button" class="nes-btn is-primary" onclick="ValidarNombre()">Continuar</button>
+
+        <div id="Mensajes"></div>
+
+    </section>
+
+
+    <div id="Juego" class="Contenedor_2" style="display: none;">
+
+        <div class="ContenenedorTituloyImagen">
+
+            <h1 class="titulo_principal"> Adivine el Numero </h1>
+
+            <section class="message -left animate__animated animate__flipInY">
+                <i class="nes-bcrikko"></i>
+                <!-- Balloon -->
+                <div class="nes-balloon from-left">
+                    <h5 class="TextoAtaques">
+                        Consideraciones a tener en cuenta con el juego, consiste
+                        en ingresar un numero del 1 al 15 y antes de quedarte sin puntos
+                        adivinar ese numero el puntaje maximo se guardara hasta superar el mismo .. Mucha Suerte!!
+                    </h5>
+                </div>
+
+
+            </section>
+        </div>
+
+        <label> <b>Elija un numero entre 1 y 15</b></label>
+
+        <input type="text" id="numero" minlength="1" maxlength="2"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="ingrese un numero.." />
+
+        <div class="">
+            <button type="button" class="nes-btn is-primary" onclick="AdivinarNumero()">Adivinar Numero</button>
+        </div>
+
+        <div class="">
+            <span class="TextOportunidades">
+                <b>Puntaje:</b> <b> <span id="contador_vidas_jugador">15</span></b>
+                <b>Puntaje a Superar:</b> <b> <span id="highscore"></span></b>
+        </div>
+
+        <section id="Mensajes2"></section>
+
+        <div id="Reiniciar">
+            <button class="nes-btn" id="boton-reiniciar">Reiniciar Juego</button>
+        </div>
+    </div>
+
+    <script src="javascript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+</body>
+
+</html>
