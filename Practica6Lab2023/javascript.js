@@ -58,12 +58,12 @@ function AdivinarNumero(e) {
         mensajeResultado = MensajesJuego('Ingresa un numero entre 1 - 15');
     }
     else if (inputNumero.value > NumeroAleatorio) {
-        mensajeResultado = MensajesJuego('Tu numero es Menor');
+        mensajeResultado = MensajesJuego('El numero es Menor');
         ContadorPuntaje--;
         spanVidasJugador.innerHTML = ContadorPuntaje;
 
     } else if (inputNumero.value < NumeroAleatorio) {
-        mensajeResultado = MensajesJuego('Tu numero es Mayor');
+        mensajeResultado = MensajesJuego('El numero es Mayor');
         ContadorPuntaje--;
         spanVidasJugador.innerHTML = ContadorPuntaje;
     }
