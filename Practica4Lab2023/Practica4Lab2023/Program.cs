@@ -14,17 +14,64 @@ namespace Practica4Lab2023
     {
         static void Main(string[] args)
         {
-            
-            MostrandoDatosEntidades();
-            AddCustomer();
-            UpdateCustomer();
-            DeleteCustomer();
 
+
+            int opcionesMenu = 0;
+            int Contador = 0;
+
+            Console.WriteLine("============== Crud de Customers ==============");
+            Console.WriteLine(" Ingrese una opcion para acceder algun metodo ");
+            Console.WriteLine(" 1 - Mostrar los datos de las 2 Entidades ");
+            Console.WriteLine(" 2 - Agregar Customer ");
+            Console.WriteLine(" 3 - Editar Customer ");
+            Console.WriteLine(" 4 - Eliminar Customer ");
+            Console.WriteLine(" 0 - Para terminar el programa ");
+
+            opcionesMenu = Convert.ToInt32(Console.ReadLine());
+           
+            while(opcionesMenu != 0)
+            {
+
+                if (opcionesMenu == 1)
+                {
+                    MostrandoDatosEntidades();
+                }
+                else if (opcionesMenu == 2)
+                {
+                    AddCustomer();
+                }
+                else if (opcionesMenu == 3)
+                {
+                    UpdateCustomer();
+                }
+                else if (opcionesMenu == 4)
+                {
+                    DeleteCustomer();
+                }
+                else
+                {
+                    Console.WriteLine("Ocurrio un error, o no ingreso una de las opciones");
+                    
+                }
+
+                Contador++;
+
+                Console.WriteLine("============== Crud de Customers ==============");
+                Console.WriteLine(" ingrese una opcion para acceder algun metodo ");
+                Console.WriteLine(" 1 - Mostrar los datos de las 2 Entidades ");
+                Console.WriteLine(" 2 - Agregar Customer ");
+                Console.WriteLine(" 3 - Editar Customer ");
+                Console.WriteLine(" 4 - Eliminar Customer ");
+                opcionesMenu = Convert.ToInt32(Console.ReadLine());
+
+            }
 
             Console.Write("\nPress 'Enter' to exit the process...");
             while (Console.ReadKey().Key != ConsoleKey.Enter)
             {
             }
+
+
 
         }
         private static void MostrandoDatosEntidades()
@@ -277,7 +324,7 @@ namespace Practica4Lab2023
                 catch (Exception)
                 {
                     ingresoInvalido = true;
-                    Console.WriteLine("Se debe ingresar nuevamente la informacion");
+                    Console.WriteLine("Fallo, Se debe ingresar nuevamente la informacion");
                 }
 
             }
