@@ -2,11 +2,7 @@
 using Lab.Logic;
 using Lab.Logic.Excepciones;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Practica4Lab2023
 {
@@ -28,8 +24,8 @@ namespace Practica4Lab2023
             Console.WriteLine(" 0 - Para terminar el programa ");
 
             opcionesMenu = Convert.ToInt32(Console.ReadLine());
-           
-            while(opcionesMenu != 0)
+
+            while (opcionesMenu != 0)
             {
 
                 if (opcionesMenu == 1)
@@ -51,7 +47,7 @@ namespace Practica4Lab2023
                 else
                 {
                     Console.WriteLine("Ocurrio un error, o no ingreso una de las opciones");
-                    
+
                 }
 
                 Contador++;
@@ -228,8 +224,8 @@ namespace Practica4Lab2023
             return CompanyNameCustomers;
         }
 
-        
-        
+
+
         private static void UpdateCustomer()
         {
             CustomerLogic customerLogic = new CustomerLogic();

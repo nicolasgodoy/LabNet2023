@@ -1,10 +1,7 @@
 namespace Lab.Entities
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     public partial class Customers
     {
@@ -15,7 +12,7 @@ namespace Lab.Entities
             CustomerDemographics = new HashSet<CustomerDemographics>();
         }
 
-        public Customers(string customerID,string contactName, string companyName)
+        public Customers(string customerID, string contactName, string companyName)
         {
             this.CustomerID = customerID;
             this.ContactName = contactName;
@@ -24,7 +21,7 @@ namespace Lab.Entities
             CustomerDemographics = new HashSet<CustomerDemographics>();
         }
 
-        
+
 
         [Key]
         [StringLength(5)]
