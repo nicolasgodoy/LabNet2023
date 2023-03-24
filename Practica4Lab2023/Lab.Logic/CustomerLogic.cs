@@ -12,6 +12,12 @@ namespace Lab.Logic
 {
     public class CustomerLogic : BaseLogic, IABMLogic<Customers>
     {
+
+        public Customers Get(string id)
+        {
+            return context.Customers.Find(id);
+        }
+        
         public List<Customers> GetAll()
         {
             return context.Customers.ToList();
@@ -43,6 +49,8 @@ namespace Lab.Logic
                 throw new FieldLenghtInvalidException("La longitud de CustomerID es invalida");
             }
         }
+
+        
 
         public void ValidEntityNotFound(Customers customer)
         {

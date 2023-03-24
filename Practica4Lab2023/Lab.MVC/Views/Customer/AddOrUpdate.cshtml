@@ -1,0 +1,54 @@
+﻿@model Lab.MVC.Models.CustomersViewModel
+
+
+@{
+    string action = ViewData["Action"] as string;
+    bool isAdd = action == "Add";
+    string Title = isAdd ? "Agregar Customer" : "Editar Customer";
+    bool isDisabled = isAdd;
+
+    string btnLabel = isAdd ? "Agregar" : "Actualizar";
+    ViewBag.@Title = @Title;
+
+
+
+
+}
+
+<h1>Formulario</h1>
+<h2>@Title</h2>
+
+@using (Html.BeginForm(action, "Customer", FormMethod.Post))
+{
+
+    <div class="form-group">
+        <div>
+
+            <label>Ingrese el CustomID</label>
+            @if (isDisabled)
+            {
+                @Html.TextBoxFor(c => c.Id, new { @class = "form-control" })
+            }
+            else
+            {
+                @Html.TextBoxFor(c => c.Id, new { @class = "form-control", disabled = "disabled" })
+            }
+
+            <label>Ingrese el company Name</label>
+            @Html.TextBoxFor(c => c.companyName, new { @class = "form-control" })
+
+
+            <label>Ingrese el Contact Name</label>
+            @Html.TextBoxFor(c => c.contactName, new { @class = "form-control" })
+
+            @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-danger" })
+            <input type="submit" class="btn btn-success" value="@btnLabel" />
+
+        </div>
+    </div>
+}
+
+
+
+
+
