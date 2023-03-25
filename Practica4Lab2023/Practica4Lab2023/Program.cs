@@ -2,11 +2,6 @@
 using Lab.Logic;
 using Lab.Logic.Excepciones;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Practica4Lab2023
 {
@@ -27,11 +22,11 @@ namespace Practica4Lab2023
             Console.WriteLine(" 4 - Eliminar Customer ");
             Console.WriteLine(" 0 - Para terminar el programa ");
 
-            opcionesMenu = Convert.ToInt32(Console.ReadLine());
-           
-            while(opcionesMenu != 0)
-            {
+            opcionesMenu = int.Parse(Console.ReadLine());
 
+            while (opcionesMenu != 0)
+            {
+               
                 if (opcionesMenu == 1)
                 {
                     MostrandoDatosEntidades();
@@ -62,7 +57,7 @@ namespace Practica4Lab2023
                 Console.WriteLine(" 2 - Agregar Customer ");
                 Console.WriteLine(" 3 - Editar Customer ");
                 Console.WriteLine(" 4 - Eliminar Customer ");
-                opcionesMenu = Convert.ToInt32(Console.ReadLine());
+                opcionesMenu = int.Parse(Console.ReadLine());
 
             }
 
