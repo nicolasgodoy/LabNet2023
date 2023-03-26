@@ -11,7 +11,7 @@ namespace Practica4Lab2023
         {
 
 
-            int opcionesMenu = 0;
+            string opcionesMenu = string.Empty;
             int Contador = 0;
 
             Console.WriteLine("============== Crud de Customers ==============");
@@ -22,31 +22,31 @@ namespace Practica4Lab2023
             Console.WriteLine(" 4 - Eliminar Customer ");
             Console.WriteLine(" 0 - Para terminar el programa ");
 
-            opcionesMenu = int.Parse(Console.ReadLine());
+            opcionesMenu = Console.ReadLine();
 
-            while (opcionesMenu != 0)
+            while (opcionesMenu != "0")
             {
-               
-                if (opcionesMenu == 1)
+
+                if (opcionesMenu == "1")
                 {
                     MostrandoDatosEntidades();
                 }
-                else if (opcionesMenu == 2)
+                else if (opcionesMenu == "2")
                 {
                     AddCustomer();
                 }
-                else if (opcionesMenu == 3)
+                else if (opcionesMenu == "3")
                 {
                     UpdateCustomer();
                 }
-                else if (opcionesMenu == 4)
+                else if (opcionesMenu == "4")
                 {
                     DeleteCustomer();
                 }
                 else
                 {
                     Console.WriteLine("Ocurrio un error, o no ingreso una de las opciones");
-                    
+
                 }
 
                 Contador++;
@@ -57,7 +57,7 @@ namespace Practica4Lab2023
                 Console.WriteLine(" 2 - Agregar Customer ");
                 Console.WriteLine(" 3 - Editar Customer ");
                 Console.WriteLine(" 4 - Eliminar Customer ");
-                opcionesMenu = int.Parse(Console.ReadLine());
+                opcionesMenu = Console.ReadLine();
 
             }
 
