@@ -15,26 +15,111 @@ namespace Practica4Lab2023
         static void Main(string[] args)
         {
 
-            MetodoQuery1();
-            MetodoQuery2();
-            MetodoQuery3();
-            MetodoQuery4();
-            MetodoQuery5();
-            MetodoQuery6();
-            MetodoQuery7();
-            MetodoQuery8();
-            MetodoQuery9();
-            MetodoQuery10();
+            string opcionesMenu = string.Empty;
+            int Contador = 0;
 
-            // Averigue que necesitaba una subconsulta pero no pude hacerlo andar
-            // MetodoQuery11();
+            Console.WriteLine("============== Crud de Customers ==============");
+            Console.WriteLine(" Ingrese una opcion para acceder alguna Query ");
+            Console.WriteLine(" 1 - Ingresar a la query 1 ");
+            Console.WriteLine(" 2 - Ingresar a la query 2 ");
+            Console.WriteLine(" 3 - Ingresar a la query 3 ");
+            Console.WriteLine(" 4 - Ingresar a la query 4 ");
+            Console.WriteLine(" 5 - Ingresar a la query 5 ");
+            Console.WriteLine(" 6 - Ingresar a la query 6 ");
+            Console.WriteLine(" 7 - Ingresar a la query 7 ");
+            Console.WriteLine(" 8 - Ingresar a la query 8 ");
+            Console.WriteLine(" 9 - Ingresar a la query 9 ");
+            Console.WriteLine(" 10 - Ingresar a la query 10 ");
+            Console.WriteLine(" 0 - Para terminar el programa ");
+
+            opcionesMenu = Console.ReadLine();
+
+            while (opcionesMenu != "0")
+            {
+
+                if (opcionesMenu == "1")
+                {
+                    MetodoQuery1();
+                }
+                else if (opcionesMenu == "2")
+                {
+                    MetodoQuery2();
+
+                }
+                else if (opcionesMenu == "3")
+                {
+                    MetodoQuery3();
+
+                }
+                else if (opcionesMenu == "4")
+                {
+                    MetodoQuery4();
+
+                }
+                else if (opcionesMenu == "5")
+                {
+                    MetodoQuery5();
+
+                }
+                else if (opcionesMenu == "6")
+                {
+                    MetodoQuery6();
+
+                }
+                else if (opcionesMenu == "7")
+                {
+                    MetodoQuery7();
+
+                }
+                else if (opcionesMenu == "8")
+                {
+                    MetodoQuery8();
+
+                }
+                else if (opcionesMenu == "9")
+                {
+                    MetodoQuery9();
+
+                }
+                else if (opcionesMenu == "10")
+                {
+                    MetodoQuery10();
+
+                }
+                else
+                {
+                    Console.WriteLine("Ocurrio un error, o no ingreso una de las opciones");
+
+                }
+
+
+                Contador++;
+
+                Console.WriteLine("============== Crud de Customers ==============");
+                Console.WriteLine(" Ingrese una opcion para acceder alguna Query ");
+                Console.WriteLine(" 1 - Ingresar a la query 1 ");
+                Console.WriteLine(" 2 - Ingresar a la query 2 ");
+                Console.WriteLine(" 3 - Ingresar a la query 3 ");
+                Console.WriteLine(" 4 - Ingresar a la query 4 ");
+                Console.WriteLine(" 5 - Ingresar a la query 5 ");
+                Console.WriteLine(" 6 - Ingresar a la query 6 ");
+                Console.WriteLine(" 7 - Ingresar a la query 7 ");
+                Console.WriteLine(" 8 - Ingresar a la query 8 ");
+                Console.WriteLine(" 9 - Ingresar a la query 9 ");
+                Console.WriteLine(" 10 - Ingresar a la query 10 ");
+                Console.WriteLine(" 0 - Para terminar el programa ");
+                opcionesMenu = Console.ReadLine();
+
+            }
+
 
             Console.Write("\nPress 'Enter' to exit the process...");
             while (Console.ReadKey().Key != ConsoleKey.Enter)
             {
             }
-
         }
+    
+
 
         private static void MetodoQuery1()
         {
