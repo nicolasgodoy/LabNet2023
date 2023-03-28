@@ -1,6 +1,7 @@
 ﻿using Lab.Entities;
 using Lab.Logic;
 using Lab.Logic.Excepciones;
+using Lab.WebApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -20,7 +21,18 @@ namespace Lab.WebApi.Controllers
             {
                 CustomerLogic customerLogic = new CustomerLogic();
                 List<Customers> listaCustomer = customerLogic.GetAll();
-                return Json(listaCustomer);
+                List<CustomerDto> listCustomerDto = new List<CustomerDto>();
+
+                foreach (Customers item in listaCustomer)
+                {
+                    CustomerDto customerdto = new CustomerDto();
+                    customerdto.CustomerID = item.CustomerID;
+                    customerdto.CompanyName = item.CompanyName;
+                    customerdto.ContactName = item.ContactName;
+                    listCustomerDto.Add(customerdto);
+                }
+                return Json(listCustomerDto);
+
             }
             catch (Exception ex)
             {
@@ -42,8 +54,14 @@ namespace Lab.WebApi.Controllers
                     return StatusCode(HttpStatusCode.NotFound);
                 }
 
+                CustomerDto customerdto = new CustomerDto();
+                customerdto.CustomerID = customer.CustomerID;
+                customerdto.CompanyName = customer.CompanyName;
+                customerdto.ContactName = customer.ContactName;
+                
 
-                return Json(customer);
+
+                return Json(customerdto);
             }
             catch (Exception ex)
             {
