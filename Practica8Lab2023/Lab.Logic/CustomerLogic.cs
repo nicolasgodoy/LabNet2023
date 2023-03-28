@@ -71,7 +71,7 @@ namespace Lab.Logic
 
         public void Delete(string id)
         {
-            var customerDelete = context.Customers.First(n => n.CustomerID == id);
+            var customerDelete = context.Customers.Find(id);
             ValidEntityNotFound(customerDelete);
             context.Customers.Remove(customerDelete);
             context.SaveChanges();

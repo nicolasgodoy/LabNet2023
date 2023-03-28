@@ -1,0 +1,34 @@
+﻿
+@model  Lab.MVC.Models.ChuckNorrisViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+
+    <card style="margin-top:1rem;">
+
+
+       <div class="card bg-dark" style="width: 30rem;">
+            <img class="card-img-top" src="https://api.chucknorris.io/img/chucknorris_logo_coloured_small@2x.png" />
+            
+            <div class="card-body bg-dark text-center">
+
+
+                <b class="card-text text-white">Frase</b>
+                <p class="card-text text-white">@Model.Value</p>
+                <hr />
+                <b class="card-text text-white">Chuck Norris: </b>
+                <p class="card-text text-white">@Model.Created_At</p>
+                <a href="ChuckNorris " class="btn btn-danger">Cambiar Frase</a>
+
+
+            </div>
+        </div>
+         
+    </card>
+</div>
+
+
+

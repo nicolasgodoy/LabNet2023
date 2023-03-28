@@ -12,7 +12,7 @@
 
     <table class="table" style="margin-top:1rem;">
 
-        <thead class="bg-primary">
+        <thead class="bg-dark text-white">
             <tr>
                 <th>CustomerID</th>
                 <th>ContactName</th>
@@ -24,16 +24,17 @@
         <tbody class="">
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.companyName</td>
-                    <td>@item.contactName</td>
-                    <td>
-                        @Html.ActionLink("Editar", "Update", new { id = @item.Id }, new { @class = "btn btn-warning" })
-                        @Html.ActionLink("Eliminar", "Delete", new { id = @item.Id }, new { @class = "btn btn-danger" })
-                    </td>
+            <tr>
+                
+                <td><b>@item.Id</b></td>
+                <td><b>@item.companyName</b></td>
+                <td><b>@item.contactName</b></td>
+                <td>
+                    @Html.ActionLink("Editar", "Update", new { id = @item.Id }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Eliminar", "Delete", new { id = @item.Id }, new { @class = "btn btn-danger" })
+                </td>
 
-                </tr>
+            </tr>
 
             }
 
