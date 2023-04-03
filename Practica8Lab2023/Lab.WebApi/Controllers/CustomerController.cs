@@ -4,12 +4,14 @@ using Lab.Logic.Excepciones;
 using Lab.WebApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Net;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Lab.WebApi.Controllers
 {
-
+    [EnableCors(origins: "*", headers: "*", methods: "GET,POST,PUT,DELETE,OPTIONS")]
     public class CustomerController : ApiController
     {
         // GET: Customer

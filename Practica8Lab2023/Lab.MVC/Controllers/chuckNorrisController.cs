@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-
-using Lab.Entities;
-using Lab.Logic;
-
-using Lab.MVC.Models;
+﻿using Lab.MVC.Models;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Web.Mvc;
 
 namespace Lab.MVC.Controllers
 {
