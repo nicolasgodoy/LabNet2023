@@ -17,6 +17,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.MVC", "Lab.MVC\Lab.MVC.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.WebApi", "Lab.WebApi\Lab.WebApi.csproj", "{9D6CDBEE-A2D0-493A-AD6D-78F5C6DB4AA4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppAngular", "AppAngular", "{8D487771-770F-41CE-8122-C9C588F54B54}"
+	ProjectSection(SolutionItems) = preProject
+		AppAngular\.browserslistrc = AppAngular\.browserslistrc
+		AppAngular\.editorconfig = AppAngular\.editorconfig
+		AppAngular\.gitignore = AppAngular\.gitignore
+		AppAngular\angular.json = AppAngular\angular.json
+		AppAngular\karma.conf.js = AppAngular\karma.conf.js
+		AppAngular\package-lock.json = AppAngular\package-lock.json
+		AppAngular\package.json = AppAngular\package.json
+		AppAngular\README.md = AppAngular\README.md
+		AppAngular\tsconfig.app.json = AppAngular\tsconfig.app.json
+		AppAngular\tsconfig.json = AppAngular\tsconfig.json
+		AppAngular\tsconfig.spec.json = AppAngular\tsconfig.spec.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

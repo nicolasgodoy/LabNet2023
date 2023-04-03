@@ -1,0 +1,87 @@
+<h1 style="font-size:1.7rem;" mat-dialog-title>{{tituloAccionCustomers}} Customers</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="formCustomers">
+        <mat-grid-list style="width:350px" cols="1" rowHeight="120px">
+
+
+            <mat-grid-tile>
+                <div style="width:350px" rowHeight="100px">
+                    <mat-form-field appearance="outline">
+
+                        <mat-label>CustomerID</mat-label>
+                        <input formControlName="CustomerID" name="CustomerID" style="font-size:1.5rem;" matInput
+                            placeholder="CustomerID" autocomplete="off" minlength="5" maxlength="5" [readonly]="isEdit"
+                            required />
+
+
+                    </mat-form-field>
+                    <mat-error
+                        *ngIf="formCustomers.get('CustomerID')?.touched && formCustomers.get('CustomerID')?.errors?.['required'] ">
+                        <span class="mensajesValidaciones"><b>Campo CustomerID requerido</b></span>
+                    </mat-error>
+                    <mat-error
+                        *ngIf="formCustomers.get('CustomerID')?.touched && formCustomers.get('CustomerID')?.errors?.['pattern'] ">
+                        <span class=""><b>Solo se pueden ingresar letras</b></span>
+                    </mat-error>
+
+                </div>
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile>
+                <div style="width:350px" rowHeight="100px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>CompanyName</mat-label>
+                        <input formControlName="CompanyName" style="font-size: 1.5rem;" matInput
+                            placeholder="Company name" autocomplete="off" maxlength="15" />
+                    </mat-form-field>
+                    <mat-error
+                        *ngIf="formCustomers.get('CompanyName')?.touched && formCustomers.get('CompanyName')?.errors?.['required'] ">
+                        <span class=""><b>Campo CompanyName requerido</b></span>
+                    </mat-error>
+                    <mat-error
+                        *ngIf="formCustomers.get('CompanyName')?.touched && formCustomers.get('CompanyName')?.errors?.['pattern'] ">
+                        <span class=""><b>Solo se pueden ingresar letras</b></span>
+                    </mat-error>
+                </div>
+
+            </mat-grid-tile>
+
+
+            <mat-grid-tile>
+                <div style="width:350px" rowHeight="100px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>ContactName</mat-label>
+                        <input formControlName="ContactName" style="font-size: 1.5rem;" matInput
+                            placeholder="Contact name" autocomplete="off" maxlength="15" />
+
+                    </mat-form-field>
+                    <mat-error
+                        *ngIf="formCustomers.get('ContactName')?.touched && formCustomers.get('ContactName')?.errors?.['required'] ">
+                        <span class=""><b>Campo ContactName requerido</b></span>
+                    </mat-error>
+                    <mat-error
+                        *ngIf="formCustomers.get('ContactName')?.touched && formCustomers.get('ContactName')?.errors?.['pattern'] ">
+                        <span class=""><b>Solo se pueden ingresar letras</b></span>
+                    </mat-error>
+                </div>
+            </mat-grid-tile>
+
+
+
+        </mat-grid-list>
+
+    </form>
+
+</div>
+
+
+<div mat-dialog-actions>
+    <button mat-raised-button style="font-size:1.2rem;width:150px;" color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button style="font-size:1.2rem;width:150px;" color="primary" [disabled]="formCustomers.invalid"
+        (click)="AddOrUpdateCustomers()">{{botonAccionCustomers}}
+
+    </button>
+</div>
