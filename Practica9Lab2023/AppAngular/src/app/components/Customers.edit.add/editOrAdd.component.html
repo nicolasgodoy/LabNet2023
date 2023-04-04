@@ -35,7 +35,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>CompanyName</mat-label>
                         <input formControlName="CompanyName" style="font-size: 1.5rem;" matInput
-                            placeholder="Company name" autocomplete="off" maxlength="15" />
+                            placeholder="Company name" autocomplete="off" maxlength="40" />
                     </mat-form-field>
                     <mat-error
                         *ngIf="formCustomers.get('CompanyName')?.touched && formCustomers.get('CompanyName')?.errors?.['required'] ">
@@ -55,7 +55,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>ContactName</mat-label>
                         <input formControlName="ContactName" style="font-size: 1.5rem;" matInput
-                            placeholder="Contact name" autocomplete="off" maxlength="15" />
+                            placeholder="Contact name" autocomplete="off" maxlength="30" />
 
                     </mat-form-field>
                     <mat-error
