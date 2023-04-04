@@ -37,9 +37,9 @@ export class editOrAddComponent implements AfterViewInit, OnInit {
 
   ) {
     this.formCustomers = this.fb.group({
-      CustomerID: ["", [Validators.required, Validators.pattern('[a-zA-Z]{1,254}')]],
-      CompanyName: ["", [Validators.required, Validators.pattern('[a-zA-Z]{1,254}')]],
-      ContactName: ["", [Validators.required, Validators.pattern('[a-zA-Z]{1,254}')]]
+      CustomerID: ["", [Validators.required, Validators.pattern('^[a-zA-Z\\s]*$')]],
+      CompanyName: ["", [Validators.required, Validators.pattern('^[a-zA-Z\\s]*$')]],
+      ContactName: ["", [Validators.required, Validators.pattern('^[a-zA-Z\\s]*$')]]
     })
 
   }
