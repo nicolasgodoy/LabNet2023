@@ -68,7 +68,7 @@
             onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="ingrese un numero.." />
 
         <div class="">
-            <button type="button" class="nes-btn is-primary" onclick="AdivinarNumero()">Adivinar Numero</button>
+            <button id="btnAdivinarNum" type="button" class="nes-btn is-primary" onclick="AdivinarNumero()">Adivinar Numero</button>
         </div>
 
         <div class="">
@@ -77,7 +77,9 @@
                 <b>Puntaje a Superar:</b> <b> <span id="highscore"></span></b>
         </div>
 
-        <section id="Mensajes2"></section>
+        <section id="Mensajes2">
+            
+        </section>
 
         <div id="Reiniciar">
             <button class="nes-btn" id="boton-reiniciar">Reiniciar Juego</button>

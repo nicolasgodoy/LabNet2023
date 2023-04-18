@@ -8,13 +8,13 @@ var NumeroAleatorio;
 var ContadorPuntaje = 15; // ya sabemos que tiene 15 intentos
 const canvas = document.getElementById('confetti');
 
+
 function ValidarNombre() {
 
     let isValid = false;
     const pattern = new RegExp('^[A-Z]+$', 'i');
     const maxLength = 15;
     MostrarMensaje = '';
-
 
     var inputNombre = document.getElementById('nombre');
     if (!inputNombre.value) {
@@ -49,6 +49,8 @@ function ValidarNombre() {
     MensajesForm(MostrarMensaje);
 }
 
+var btnAdivinarNumero = document.getElementById('btnAdivinarNum');
+
 function AdivinarNumero(e) {
 
     let spanVidasJugador = document.getElementById('contador_vidas_jugador');
@@ -79,25 +81,31 @@ function AdivinarNumero(e) {
         mensajeResultado = MensajesJuego('Adivinaste el numero, Felicitaciones Ganaste' + ' ' + (nombre.value).toUpperCase());
         let ocultarBotonReiniciar = document.getElementById('boton-reiniciar');
         ocultarBotonReiniciar.style.display = 'block'; // NONE PARA OCULTAR BOTON REINICIAR QUE LUEGO MOSTRAREMOS AL FINALIZAR EL COMBATE
-
+        btnAdivinarNumero.disabled = true;
+        
         const jsConfetti = new JSConfetti({ canvas })
         jsConfetti.addConfetti({
             emojis: ['🎉', '1️⃣', '2️⃣', '💥', '3️⃣', '9️⃣', '6️⃣', '🎉'],
         })
+        
 
     }
 
     if (ContadorPuntaje == 0) {
 
+        
         mensajeResultado = MensajesJuego('Perdiste, Vuelve a intentarlo' + ' ' + (nombre.value));
         document.body.style.backgroundColor = "crimson";
         let ocultarBotonReiniciar = document.getElementById('boton-reiniciar');
         ocultarBotonReiniciar.style.display = 'block'; // NONE PARA OCULTAR BOTON REINICIAR QUE LUEGO MOSTRAREMOS AL FINALIZAR EL COMBATE
+        btnAdivinarNumero.disabled = true;
 
         const jsConfetti = new JSConfetti({ canvas })
         jsConfetti.addConfetti({
             emojis: ['😭', '😭', '😓', '😭', '😭', '😭', '😪', '😭'],
         })
+        
+        
     }
 
 
@@ -110,13 +118,21 @@ function MensajesForm(Contenido) {
 
 function MensajesJuego(mensajeResultado) {
 
+    
     let contenedorMensajes = document.getElementById('Mensajes2')
     let parrafo = document.createElement('p');
 
     parrafo.classList.add('animate__animated', 'animate__fadeInTopLeft');
     parrafo.innerHTML = mensajeResultado;
-    contenedorMensajes.appendChild(parrafo)
+    contenedorMensajes.appendChild(parrafo);
+
+    setTimeout(() => {
+        parrafo.style.display = "none";
+    }, "3000");
 }
+
+
+
 
 
 function Numeroaleatorio(min, max) {
